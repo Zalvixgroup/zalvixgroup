@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { LeadCaptureForm } from "@/components/ui/LeadCaptureForm";
 import { ImageGallerySlider } from "@/components/ui/ImageGallerySlider";
+import { ReviewSection } from "@/components/ui/ReviewSection";
 import { Check, Phone, ArrowUpRight } from "lucide-react";
 
 interface ServiceDetailPageProps {
@@ -45,6 +46,10 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           services: {
             where: { isActive: true },
             orderBy: { displayOrder: "asc" },
+          },
+          reviews: {
+            orderBy: { createdAt: "desc" },
+            take: 10,
           },
         },
       }),
@@ -144,6 +149,13 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               <span>+91 73073 10320</span>
             </a>
           </div>
+
+          {/* Customer Reviews Section */}
+          <ReviewSection
+            categoryId={category.id}
+            categoryName={category.name}
+            initialReviews={category.reviews || []}
+          />
         </div>
 
         {/* Right Column (5 cols): Sticky Lead Form */}

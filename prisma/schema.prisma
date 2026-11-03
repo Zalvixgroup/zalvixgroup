@@ -28,6 +28,7 @@ model Category {
   displayOrder          Int           @default(0)
   services              Service[]
   bookings              Booking[]
+  reviews               Review[]
   createdAt             DateTime      @default(now())
   updatedAt             DateTime      @updatedAt
 
@@ -81,5 +82,19 @@ model Booking {
 
   @@index([bookingId])
   @@index([phoneNumber])
+  @@index([createdAt])
+}
+
+model Review {
+  id           String    @id @default(cuid())
+  customerName String
+  rating       Int       @default(5)
+  comment      String
+  gorakhpurArea String   @default("Gorakhpur")
+  categoryId   String?
+  category     Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  createdAt    DateTime  @default(now())
+
+  @@index([categoryId])
   @@index([createdAt])
 }
