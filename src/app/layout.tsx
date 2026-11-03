@@ -6,10 +6,35 @@ import { StickyMobileBar } from "@/components/ui/StickyMobileBar";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Zalvix Group | Trusted Doorstep Home Appliance Repair in Gorakhpur",
+  title: {
+    default: "Zalvix Group | Doorstep Home Appliance Repair in Gorakhpur",
+    template: "%s | Zalvix Group",
+  },
   description:
-    "Fast, reliable doorstep repair for AC, Refrigerator, Washing Machine, RO, Geyser, and Smart TV by Zalvix Group in Gorakhpur. Flat ₹99 inspection, 30-day warranty, pay after service.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://zalvixgroup.in"),
+    "Fast, reliable doorstep repair for AC, Refrigerator, Washing Machine, RO, Geyser, and Smart TV in Gorakhpur. Flat ₹99 diagnosis (waived on repair), 30-day warranty, pay after service.",
+  metadataBase: new URL("https://www.zalvixgroup.in"),
+  openGraph: {
+    title: "Zalvix Group | Doorstep Appliance Repair in Gorakhpur",
+    description: "Flat ₹99 inspection (waived on repair), 30-day warranty, 10-minute callback, and verified doorstep mechanics across Gorakhpur.",
+    url: "https://www.zalvixgroup.in",
+    siteName: "Zalvix Group",
+    images: [
+      {
+        url: "https://www.zalvixgroup.in/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Zalvix Group - Gorakhpur Doorstep Appliance Repair",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zalvix Group | Doorstep Appliance Repair in Gorakhpur",
+    description: "Flat ₹99 inspection (waived on repair), 30-day warranty, 10-minute callback across Gorakhpur.",
+    images: ["https://www.zalvixgroup.in/logo.png"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },

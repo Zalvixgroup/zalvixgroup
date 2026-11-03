@@ -20,17 +20,50 @@ export async function generateMetadata({
   try {
     const category = await prisma.category.findUnique({
       where: { slug: params.category },
-      select: { name: true, aboutDescription: true },
+      select: {
+        name: true,
+        aboutDescription: true,
+        thumbnailImage: true,
+        galleryImages: true,
+        inspectionFee: true,
+      },
     });
 
     if (!category) return { title: "Service Not Found" };
 
+    const title = `${category.name} in Gorakhpur | ₹${category.inspectionFee} Inspection Doorstep Service`;
+    const description = `${category.aboutDescription || "Doorstep appliance repair across Gorakhpur."} Flat ₹${category.inspectionFee} fee (waived if repaired), 30-day warranty, 10-minute callback.`;
+    const imageUrl = category.thumbnailImage || "https://www.zalvixgroup.in/logo.png";
+    const pageUrl = `https://www.zalvixgroup.in/services/${params.category}`;
+
     return {
-      title: `${category.name} in Gorakhpur | ₹99 Inspection | Zalvix Group`,
-      description: category.aboutDescription || "Doorstep appliance repair in Gorakhpur with 30-day warranty.",
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url: pageUrl,
+        siteName: "Zalvix Group",
+        images: [
+          {
+            url: imageUrl,
+            width: 800,
+            height: 500,
+            alt: `${category.name} in Gorakhpur - Zalvix Group`,
+          },
+        ],
+        locale: "en_IN",
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [imageUrl],
+      },
     };
   } catch (e) {
-    return { title: "Zalvix Group Service" };
+    return { title: "Appliance Service | Zalvix Group" };
   }
 }
 

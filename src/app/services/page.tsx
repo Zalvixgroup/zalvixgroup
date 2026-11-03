@@ -3,9 +3,23 @@ import { prisma } from "@/lib/prisma";
 import { ServiceSearchFilter } from "@/components/ui/ServiceSearchFilter";
 
 export const metadata: Metadata = {
-  title: "All Home Appliance Repair Services | Zalvix Group",
+  title: "All Home Appliance Repair Services in Gorakhpur",
   description:
-    "Explore complete listing of AC, Refrigerator, Washing Machine, RO, Geyser & Smart TV repairs by Zalvix Group in Gorakhpur. ₹99 inspection, 30-day warranty.",
+    "Explore complete catalog of AC, Refrigerator, Washing Machine, RO, Geyser & Smart TV repairs by Zalvix Group in Gorakhpur. ₹99 inspection, 30-day warranty.",
+  openGraph: {
+    title: "All Appliance Repair Services in Gorakhpur | Zalvix Group",
+    description: "Doorstep repairs for AC, Fridge, Washing Machine, RO, Geyser & LED TV. Verified local mechanics, flat ₹99 diagnosis (waived on repair).",
+    url: "https://www.zalvixgroup.in/services",
+    siteName: "Zalvix Group",
+    images: [
+      {
+        url: "https://www.zalvixgroup.in/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Zalvix Group Services",
+      },
+    ],
+  },
 };
 
 export const dynamic = "force-dynamic";
