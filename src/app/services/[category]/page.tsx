@@ -3,15 +3,7 @@ import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { LeadCaptureForm } from "@/components/ui/LeadCaptureForm";
 import { ImageGallerySlider } from "@/components/ui/ImageGallerySlider";
-import {
-  Star,
-  MapPin,
-  ShieldCheck,
-  CheckCircle,
-  Clock,
-  Sparkles,
-  Phone,
-} from "lucide-react";
+import { Check, Phone, ArrowUpRight } from "lucide-react";
 
 interface ServiceDetailPageProps {
   params: {
@@ -33,16 +25,15 @@ export async function generateMetadata({
     if (!category) return { title: "Service Not Found" };
 
     return {
-      title: `${category.name} in Gorakhpur | ₹99 Inspection Doorstep Service`,
+      title: `${category.name} in Gorakhpur | ₹99 Inspection | Zalvix Group`,
       description: category.aboutDescription || "Doorstep appliance repair in Gorakhpur with 30-day warranty.",
     };
   } catch (e) {
-    return { title: "Gorakhpur Repairs Service" };
+    return { title: "Zalvix Group Service" };
   }
 }
 
 export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
-  // Fetch Category, SubServices and Serviceable Gorakhpur Areas
   let category: any = null;
   let areas: any[] = [];
 
@@ -71,114 +62,91 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
       {/* Breadcrumb Header */}
       <div>
-        <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-2">
-          <span>Home</span>
+        <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 mb-2">
+          <span>Catalog</span>
           <span>/</span>
-          <span>Services</span>
-          <span>/</span>
-          <span className="text-blue-600 font-bold">{category.name}</span>
+          <span className="text-zinc-900 font-semibold">{category.name}</span>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
-            {category.name} in Gorakhpur
+        <div className="flex flex-wrap items-baseline gap-3">
+          <h1 className="text-2xl sm:text-4xl font-black text-zinc-950 tracking-tight">
+            {category.name}
           </h1>
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Verified Technicians</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 mt-2 text-xs sm:text-sm text-slate-600">
-          <div className="flex items-center gap-1 font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-            <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-            <span>{category.rating.toFixed(1)}</span>
-            <span className="font-normal text-slate-500">
-              ({category.reviewCount}+ verified reviews)
-            </span>
-          </div>
-          <div className="flex items-center gap-1 font-medium">
-            <MapPin className="w-4 h-4 text-blue-600" />
-            <span>{category.coverageText}</span>
-          </div>
+          <span className="font-mono text-xs text-zinc-500">
+            ★ {category.rating.toFixed(1)} ({category.reviewCount}+ verified)
+          </span>
         </div>
       </div>
 
-      {/* Main 2-Column Funnel: Visuals on Left, Sticky Lead Form on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column (7 cols): Gallery + About + Subservices preview + Trust */}
+      {/* Main 2-Column Funnel: Visuals Left, Sticky Form Right */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        {/* Left Column (7 cols): Gallery + Specs */}
         <div className="lg:col-span-7 space-y-8">
-          {/* Image Slider Component */}
           <ImageGallerySlider
             images={category.galleryImages || [category.thumbnailImage]}
             title={category.name}
           />
 
-          {/* About Service and Pricing */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 space-y-4 shadow-sm">
-            <h2 className="text-xl font-bold text-slate-900">
+          {/* About Service and Specs */}
+          <div className="bg-white rounded-2xl border border-zinc-200 p-6 sm:p-8 space-y-4 shadow-subtle">
+            <h2 className="text-lg font-bold text-zinc-950">
               {category.aboutTitle || "About Service & Pricing"}
             </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
               {category.aboutDescription}
             </p>
 
-            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {category.shortBullets?.map((bullet: string, i: number) => (
                 <div
                   key={i}
-                  className="flex items-start gap-2 text-xs font-semibold text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-100"
+                  className="flex items-start gap-2 text-xs font-medium text-zinc-700 bg-zinc-50 p-2.5 rounded-xl border border-zinc-100"
                 >
-                  <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <Check className="w-3.5 h-3.5 text-zinc-900 flex-shrink-0 mt-0.5" />
                   <span>{bullet}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Pricing & Guarantee Details */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-2xl border border-blue-100 p-6 space-y-4">
-            <div className="flex items-center gap-2 text-blue-900 font-bold text-sm">
-              <Sparkles className="w-5 h-5 text-blue-600" />
-              <span>Transparent Pricing & Gorakhpur Doorstep SLA</span>
+          {/* Pricing Specs Bar */}
+          <div className="bg-zinc-900 text-white rounded-2xl p-6 grid grid-cols-3 gap-4 text-center border border-zinc-800">
+            <div>
+              <span className="block text-[11px] font-mono text-zinc-400 mb-1">Diagnosis</span>
+              <span className="text-lg sm:text-xl font-bold font-mono">₹{category.inspectionFee}</span>
+              <span className="block text-[10px] text-zinc-400 mt-0.5">Waived on repair</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
-              <div className="bg-white p-3.5 rounded-xl shadow-xs border border-blue-100">
-                <span className="block text-xs text-slate-500 font-semibold mb-1">Inspection Fee</span>
-                <span className="text-xl font-extrabold text-blue-600">₹{category.inspectionFee}</span>
-                <span className="block text-[11px] text-emerald-600 font-bold mt-0.5">100% Waived if repaired</span>
-              </div>
-              <div className="bg-white p-3.5 rounded-xl shadow-xs border border-blue-100">
-                <span className="block text-xs text-slate-500 font-semibold mb-1">Warranty</span>
-                <span className="text-xl font-extrabold text-emerald-600">30 Days</span>
-                <span className="block text-[11px] text-slate-500 font-medium mt-0.5">Doorstep guarantee</span>
-              </div>
-              <div className="bg-white p-3.5 rounded-xl shadow-xs border border-blue-100">
-                <span className="block text-xs text-slate-500 font-semibold mb-1">Response Time</span>
-                <span className="text-xl font-extrabold text-amber-600">10 Mins</span>
-                <span className="block text-[11px] text-slate-500 font-medium mt-0.5">Coordinator callback</span>
-              </div>
+            <div className="border-x border-zinc-800">
+              <span className="block text-[11px] font-mono text-zinc-400 mb-1">Guarantee</span>
+              <span className="text-lg sm:text-xl font-bold font-mono">30 Days</span>
+              <span className="block text-[10px] text-zinc-400 mt-0.5">Doorstep warranty</span>
+            </div>
+            <div>
+              <span className="block text-[11px] font-mono text-zinc-400 mb-1">SLA Callback</span>
+              <span className="text-lg sm:text-xl font-bold font-mono">10 Mins</span>
+              <span className="block text-[10px] text-zinc-400 mt-0.5">Quick confirmation</span>
             </div>
           </div>
 
-          {/* Direct Call Banner */}
-          <div className="p-4 rounded-2xl bg-white border border-slate-200 flex items-center justify-between gap-4">
+          {/* Direct Support */}
+          <div className="p-4 rounded-xl border border-zinc-200 bg-white flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Need Immediate Help?</p>
-              <p className="text-sm font-bold text-slate-900">Talk to our Gorakhpur Service Coordinator</p>
+              <p className="text-[11px] font-mono uppercase tracking-wider text-zinc-400">Direct Support</p>
+              <p className="text-xs sm:text-sm font-semibold text-zinc-900">Have questions before booking?</p>
             </div>
             <a
               href="tel:+917307310320"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white font-bold text-xs sm:text-sm hover:bg-blue-700 transition"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-zinc-300 text-zinc-900 font-medium text-xs hover:bg-zinc-100 transition"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5" />
               <span>+91 73073 10320</span>
             </a>
           </div>
         </div>
 
-        {/* Right Column (5 cols): Sticky Lead Capture Form (Rule 03 Dropdown architecture) */}
+        {/* Right Column (5 cols): Sticky Lead Form */}
         <div className="lg:col-span-5">
           <LeadCaptureForm
             categoryId={category.id}

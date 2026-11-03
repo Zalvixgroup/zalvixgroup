@@ -17,23 +17,22 @@ export function ImageGallerySlider({ images, title }: ImageGallerySliderProps) {
 
   return (
     <div className="space-y-3">
-      {/* Main Big Image Preview */}
-      <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+      {/* Main Image */}
+      <div className="relative w-full h-72 sm:h-96 rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200">
         <Image
           src={selectedImage}
           alt={title}
           fill
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
-          className="object-cover transition duration-300"
+          className="object-cover"
         />
-        <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-800 shadow-sm flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>Verified Doorstep Technician</span>
+        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider text-zinc-900 border border-zinc-200">
+          Verified Service
         </div>
       </div>
 
-      {/* Thumbnails Row */}
+      {/* Thumbnails */}
       {images.length > 1 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           {images.map((img, idx) => (
@@ -41,10 +40,10 @@ export function ImageGallerySlider({ images, title }: ImageGallerySliderProps) {
               key={idx}
               type="button"
               onClick={() => setSelectedImage(img)}
-              className={`relative w-20 h-16 rounded-xl overflow-hidden border-2 flex-shrink-0 transition ${
+              className={`relative w-20 h-16 rounded-xl overflow-hidden border transition ${
                 selectedImage === img
-                  ? "border-blue-600 ring-2 ring-blue-600/30 scale-105"
-                  : "border-slate-200 opacity-70 hover:opacity-100"
+                  ? "border-zinc-950 ring-1 ring-zinc-950"
+                  : "border-zinc-200 opacity-60 hover:opacity-100"
               }`}
             >
               <Image

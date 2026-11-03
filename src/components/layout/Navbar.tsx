@@ -1,51 +1,51 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200/80 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Logo & City Badge */}
+        {/* Brand Logo & Minimal City Badge */}
         <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-white">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-zinc-300 bg-white flex-shrink-0">
               <Image
                 src="/logo.jpeg"
-                alt="Zalvix Group Logo"
+                alt="Zalvix Group"
                 fill
-                sizes="36px"
+                sizes="32px"
                 className="object-contain"
                 priority
               />
             </div>
-            <div>
-              <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 block leading-tight">
-                Zalvix<span className="text-blue-600">Group</span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-base sm:text-lg font-black tracking-tight text-zinc-950">
+                Zalvix<span className="text-zinc-500 font-semibold">Group</span>
+              </span>
+              <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-zinc-400 pl-1 border-l border-zinc-200">
+                Gorakhpur
               </span>
             </div>
           </Link>
-          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
-            <MapPin className="w-3.5 h-3.5 text-blue-600" />
-            <span>Gorakhpur, UP</span>
-          </div>
         </div>
 
-        {/* Action Controls */}
+        {/* Minimal Actions */}
         <div className="flex items-center gap-3 sm:gap-4">
           <a
             href="tel:+917307310320"
-            className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-700 hover:text-blue-600 font-semibold text-sm transition"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-700 hover:text-zinc-950 font-medium text-xs sm:text-sm transition hover:bg-zinc-100"
           >
-            <Phone className="w-4 h-4 text-blue-600" />
-            <span className="hidden md:inline">+91 73073 10320</span>
+            <Phone className="w-3.5 h-3.5 text-zinc-900" />
+            <span className="hidden md:inline font-mono text-xs">+91 73073 10320</span>
             <span className="md:hidden">Call</span>
           </a>
           <Link
             href="/services"
-            className="px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold text-xs sm:text-sm shadow-sm hover:bg-blue-700 transition"
+            className="group flex items-center gap-1.5 px-4 py-2 rounded-full bg-zinc-950 text-white font-medium text-xs sm:text-sm hover:bg-zinc-800 transition active:scale-[0.98] shadow-sm"
           >
-            Book Doorstep Service
+            <span>Book Visit</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
           </Link>
         </div>
       </div>

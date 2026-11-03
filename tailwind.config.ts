@@ -9,26 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          blue: "#1D4ED8",
-          hover: "#1E40AF",
-          light: "#EFF6FF",
+        brand: {
+          black: "#09090B",
+          blackLight: "#18181B",
+          white: "#FFFFFF",
+          canvas: "#FAFAFA",
         },
-        accent: {
-          emerald: "#16A34A",
-          emeraldLight: "#DCFCE7",
-          amber: "#D97706",
-          amberLight: "#FEF3C7",
-        },
-        action: {
-          whatsapp: "#25D366",
-          whatsappHover: "#1EBE5D",
-          call: "#2563EB",
-          book: "#EA580C",
-        },
-        canvas: "#F8FAFC",
-        surface: "#FFFFFF",
-        borderSlate: "#E2E8F0",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
+      },
+      boxShadow: {
+        subtle: "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)",
+        card: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
+        cardHover: "0 12px 30px -4px rgba(0, 0, 0, 0.08)",
+        nav: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
       },
     },
   },

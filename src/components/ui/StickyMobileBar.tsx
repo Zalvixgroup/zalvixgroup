@@ -22,25 +22,25 @@ export function StickyMobileBar({ onBookClick, bookingUrl = "/services" }: Stick
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 shadow-2xl">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-zinc-200 px-3 py-2 shadow-2xl">
       <div className="grid grid-cols-3 gap-2">
         {/* WhatsApp */}
         <a
           href="https://wa.me/917307310320?text=Hello%20Zalvix%20Group,%20I%20need%20doorstep%20appliance%20service."
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xs hover:bg-emerald-100 transition active:scale-95"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-zinc-100 text-zinc-900 font-semibold text-xs hover:bg-zinc-200 transition active:scale-95 border border-zinc-200"
         >
-          <MessageCircle className="w-5 h-5 text-emerald-600 mb-0.5" />
+          <MessageCircle className="w-4 h-4 mb-0.5 text-zinc-800" />
           <span>WhatsApp</span>
         </a>
 
         {/* Call Now */}
         <a
           href="tel:+917307310320"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-blue-50 text-blue-700 font-bold text-xs hover:bg-blue-100 transition active:scale-95"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-zinc-100 text-zinc-900 font-semibold text-xs hover:bg-zinc-200 transition active:scale-95 border border-zinc-200"
         >
-          <Phone className="w-5 h-5 text-blue-600 mb-0.5" />
+          <Phone className="w-4 h-4 mb-0.5 text-zinc-800" />
           <span>Call Now</span>
         </a>
 
@@ -48,10 +48,10 @@ export function StickyMobileBar({ onBookClick, bookingUrl = "/services" }: Stick
         <a
           href={bookingUrl}
           onClick={handleScrollToBooking}
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-orange-600 text-white font-bold text-xs hover:bg-orange-700 transition active:scale-95 shadow-sm"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-zinc-950 text-white font-semibold text-xs hover:bg-zinc-800 transition active:scale-95 shadow-sm"
         >
-          <CalendarCheck className="w-5 h-5 mb-0.5" />
-          <span>Book Now</span>
+          <CalendarCheck className="w-4 h-4 mb-0.5 text-zinc-300" />
+          <span>Book Visit</span>
         </a>
       </div>
     </div>
