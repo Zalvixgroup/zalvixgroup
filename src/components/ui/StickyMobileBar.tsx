@@ -26,7 +26,7 @@ export function StickyMobileBar({ onBookClick, bookingUrl = "/services" }: Stick
       <div className="grid grid-cols-3 gap-2">
         {/* WhatsApp */}
         <a
-          href="https://wa.me/919876543210?text=Hello%20Gorakhpur%20Repairs,%20I%20need%20doorstep%20appliance%20service."
+          href="https://wa.me/917307310320?text=Hello%20Zalvix%20Group,%20I%20need%20doorstep%20appliance%20service."
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xs hover:bg-emerald-100 transition active:scale-95"
@@ -37,7 +37,7 @@ export function StickyMobileBar({ onBookClick, bookingUrl = "/services" }: Stick
 
         {/* Call Now */}
         <a
-          href="tel:+919876543210"
+          href="tel:+917307310320"
           className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-blue-50 text-blue-700 font-bold text-xs hover:bg-blue-100 transition active:scale-95"
         >
           <Phone className="w-5 h-5 text-blue-600 mb-0.5" />

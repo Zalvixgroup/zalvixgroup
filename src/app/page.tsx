@@ -56,8 +56,8 @@ export default async function HomePage() {
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 max-w-3xl mx-auto leading-tight">
-            Fast, Trusted Home Appliance Repair at Your Doorstep in{" "}
-            <span className="text-blue-600">Gorakhpur</span>
+            Fast, Trusted Home Appliance Repair at Your Doorstep by{" "}
+            <span className="text-blue-600">Zalvix Group</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -189,7 +189,7 @@ export default async function HomePage() {
               Easy 3-Step Process
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              How Gorakhpur Repairs Works
+              How Zalvix Group Works
             </h2>
           </div>
 
@@ -250,11 +250,11 @@ export default async function HomePage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
             <a
-              href="tel:+919876543210"
+              href="tel:+917307310320"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-blue-700 font-extrabold text-sm hover:bg-blue-50 transition shadow-md"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Call +91 98765 43210</span>
+              <span>Call +91 73073 10320</span>
             </a>
             <Link
               href="/services"

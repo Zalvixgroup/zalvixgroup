@@ -169,11 +169,11 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               <p className="text-sm font-bold text-slate-900">Talk to our Gorakhpur Service Coordinator</p>
             </div>
             <a
-              href="tel:+919876543210"
+              href="tel:+917307310320"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white font-bold text-xs sm:text-sm hover:bg-blue-700 transition"
             >
               <Phone className="w-4 h-4" />
-              <span>+91 98765 43210</span>
+              <span>+91 73073 10320</span>
             </a>
           </div>
         </div>

@@ -6,10 +6,10 @@ import { StickyMobileBar } from "@/components/ui/StickyMobileBar";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Gorakhpur Repairs | Trusted Doorstep Home Appliance Repair in Gorakhpur",
+  title: "Zalvix Group | Trusted Doorstep Home Appliance Repair in Gorakhpur",
   description:
-    "Fast, reliable doorstep repair for AC, Refrigerator, Washing Machine, RO, Geyser, and Smart TV in Gorakhpur. Flat ₹99 inspection, 30-day warranty, pay after service.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://gorakhpurrepairs.com"),
+    "Fast, reliable doorstep repair for AC, Refrigerator, Washing Machine, RO, Geyser, and Smart TV by Zalvix Group in Gorakhpur. Flat ₹99 inspection, 30-day warranty, pay after service.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://zalvixgroup.in"),
 };
 
 export const dynamic = "force-dynamic";
@@ -46,9 +46,9 @@ export default async function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
-    "name": "Gorakhpur Repairs",
-    "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
-    "telephone": "+919876543210",
+    "name": "Zalvix Group",
+    "image": "http://zalvixgroup.in/logo.jpeg",
+    "telephone": "+917307310320",
     "priceRange": "₹99 - ₹2500",
     "currenciesAccepted": "INR",
     "paymentAccepted": "Cash, UPI",

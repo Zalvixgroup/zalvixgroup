@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Wrench, Phone, ShieldCheck, Clock } from "lucide-react";
+import Image from "next/image";
+import { Phone, ShieldCheck, Clock } from "lucide-react";
 
 interface FooterProps {
   areas?: { name: string }[];
@@ -14,15 +15,21 @@ export function Footer({ areas = [], categories = [] }: FooterProps) {
           {/* Brand Info */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold">
-                <Wrench className="w-4 h-4" />
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-white">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Zalvix Group"
+                  fill
+                  sizes="32px"
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-bold text-white tracking-tight">
-                Gorakhpur<span className="text-blue-500">Repairs</span>
+                Zalvix<span className="text-blue-500">Group</span>
               </span>
             </div>
             <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-              Gorakhpur’s premier doorstep appliance repair service. Verified technicians, flat ₹99 inspection (waived on repair), and 30-day warranty.
+              Zalvix Group’s premier doorstep appliance repair & maintenance service in Gorakhpur. Verified technicians, flat ₹99 inspection (waived on repair), and 30-day warranty.
             </p>
             <div className="flex flex-col gap-2 text-xs text-slate-400">
               <div className="flex items-center gap-2">
@@ -75,12 +82,15 @@ export function Footer({ areas = [], categories = [] }: FooterProps) {
                 Direct Dispatch & Helpline:
               </p>
               <a
-                href="tel:+919876543210"
+                href="tel:+917307310320"
                 className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600/20 text-blue-400 font-bold hover:bg-blue-600 hover:text-white transition"
               >
                 <Phone className="w-4 h-4" />
-                +91 98765 43210
+                +91 73073 10320
               </a>
+              <p className="text-xs text-slate-400">
+                Email: <a href="mailto:noreply@zalvixgroup.in" className="text-blue-400 hover:underline">noreply@zalvixgroup.in</a>
+              </p>
               <p className="text-xs text-slate-500">
                 Operational Hours: 8:00 AM – 8:00 PM (All 7 Days)
               </p>
@@ -118,7 +128,7 @@ export function Footer({ areas = [], categories = [] }: FooterProps) {
 
         {/* Bottom Rights */}
         <div className="pt-6 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>© {new Date().getFullYear()} Gorakhpur Repairs. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Zalvix Group. All rights reserved.</span>
           <span>Zero Advance Payment • 100% Pay After Doorstep Service</span>
         </div>
       </div>

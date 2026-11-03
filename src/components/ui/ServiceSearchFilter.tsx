@@ -138,7 +138,7 @@ export function ServiceSearchFilter({ categories }: ServiceSearchFilterProps) {
               {/* Right Column: Actions */}
               <div className="w-full md:w-auto flex flex-row md:flex-col gap-2 pt-2 md:pt-0">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+917307310320"
                   className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-blue-600 text-blue-600 font-bold text-xs sm:text-sm hover:bg-blue-50 transition active:scale-95"
                 >
                   <Phone className="w-4 h-4" />

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Booking Confirmed | Gorakhpur Repairs",
+  title: "Booking Confirmed | Zalvix Group",
   description: "Your doorstep appliance service request has been received.",
 };
 
@@ -154,7 +154,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
       {/* Emergency Contact & WhatsApp Buttons */}
       <div className="flex flex-col sm:flex-row gap-3">
         <a
-          href={`https://wa.me/919876543210?text=Hi%20Gorakhpur%20Repairs,%20my%20Booking%20ID%20is%20${booking?.bookingId || "NEW"}.%20Please%20confirm%20my%20time%20slot.`}
+          href={`https://wa.me/917307310320?text=Hi%20Zalvix%20Group,%20my%20Booking%20ID%20is%20${booking?.bookingId || "NEW"}.%20Please%20confirm%20my%20time%20slot.`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700 transition shadow-md"
@@ -163,7 +163,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
           <span>Chat on WhatsApp</span>
         </a>
         <a
-          href="tel:+919876543210"
+          href="tel:+917307310320"
           className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition shadow-md"
         >
           <Phone className="w-5 h-5" />

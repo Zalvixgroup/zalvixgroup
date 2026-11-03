@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, MapPin, Wrench } from "lucide-react";
+import Image from "next/image";
+import { Phone, MapPin } from "lucide-react";
 
 export function Navbar() {
   return (
@@ -8,12 +9,19 @@ export function Navbar() {
         {/* Brand Logo & City Badge */}
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-sm group-hover:bg-blue-700 transition">
-              <Wrench className="w-5 h-5" />
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-white">
+              <Image
+                src="/logo.jpeg"
+                alt="Zalvix Group Logo"
+                fill
+                sizes="36px"
+                className="object-contain"
+                priority
+              />
             </div>
             <div>
               <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 block leading-tight">
-                Gorakhpur<span className="text-blue-600">Repairs</span>
+                Zalvix<span className="text-blue-600">Group</span>
               </span>
             </div>
           </Link>
@@ -26,11 +34,11 @@ export function Navbar() {
         {/* Action Controls */}
         <div className="flex items-center gap-3 sm:gap-4">
           <a
-            href="tel:+919876543210"
+            href="tel:+917307310320"
             className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-700 hover:text-blue-600 font-semibold text-sm transition"
           >
             <Phone className="w-4 h-4 text-blue-600" />
-            <span className="hidden md:inline">+91 98765 43210</span>
+            <span className="hidden md:inline">+91 73073 10320</span>
             <span className="md:hidden">Call</span>
           </a>
           <Link

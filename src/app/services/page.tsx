@@ -4,9 +4,9 @@ import { ServiceSearchFilter } from "@/components/ui/ServiceSearchFilter";
 import { ShieldCheck, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "All Home Appliance Repair Services in Gorakhpur | Gorakhpur Repairs",
+  title: "All Home Appliance Repair Services | Zalvix Group",
   description:
-    "Explore complete listing of AC, Refrigerator, Washing Machine, RO, Geyser & Smart TV repairs in Gorakhpur. ₹99 inspection, 30-day warranty.",
+    "Explore complete listing of AC, Refrigerator, Washing Machine, RO, Geyser & Smart TV repairs by Zalvix Group in Gorakhpur. ₹99 inspection, 30-day warranty.",
 };
 
 export const dynamic = "force-dynamic";
@@ -65,10 +65,10 @@ export default async function ServicesListingPage() {
           </div>
         </div>
         <a
-          href="tel:+919876543210"
+          href="tel:+917307310320"
           className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs sm:text-sm hover:bg-emerald-700 transition flex-shrink-0"
         >
-          Call Helpline: +91 98765 43210
+          Call Helpline: +91 73073 10320
         </a>
       </div>
     </div>
