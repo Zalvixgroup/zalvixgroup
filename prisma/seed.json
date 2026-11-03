@@ -1,0 +1,182 @@
+{
+    "categories": [{
+            "id": "cat_ac_01",
+            "name": "Air Conditioner (AC) Repair & Servicing",
+            "slug": "ac-repair",
+            "iconUrl": "/icons/ac.svg",
+            "thumbnailImage": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
+            "galleryImages": [
+                "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+            ],
+            "rating": 4.8,
+            "reviewCount": 194,
+            "inspectionFee": 99,
+            "isFeeWaivedOnRepair": true,
+            "coverageText": "Golghar & All Areas, Gorakhpur",
+            "shortBullets": [
+                "All types of AC repair, jet servicing, gas refilling, & installation",
+                "Experienced local mechanics • 30-day warranty",
+                "Inspection at ₹99 (Waived if repaired)"
+            ],
+            "aboutTitle": "About Service & Pricing",
+            "aboutDescription": "Complete split and window AC repair, power jet cleaning, gas charging, compressor diagnosis and reinstallation across Gorakhpur. Genuine spare parts with 30-day post-service warranty.",
+            "displayOrder": 1,
+            "subServices": [
+                { "title": "Split AC Deep Jet Servicing", "dropdownLabel": "Split AC Deep Jet Servicing (₹399)", "startingPrice": 399, "estimatedDuration": "45 Mins", "displayOrder": 1 },
+                { "title": "AC Gas Charging & Refill", "dropdownLabel": "AC Gas Charging & Refill (₹1,499)", "startingPrice": 1499, "estimatedDuration": "60 Mins", "displayOrder": 2 },
+                { "title": "AC Installation & Uninstallation", "dropdownLabel": "AC Installation & Uninstallation (₹699)", "startingPrice": 699, "estimatedDuration": "60-90 Mins", "displayOrder": 3 },
+                { "title": "General AC Inspection & Not Cooling", "dropdownLabel": "General Inspection & Repair (₹99)", "startingPrice": 99, "estimatedDuration": "30 Mins", "displayOrder": 4 }
+            ]
+        },
+        {
+            "id": "cat_fridge_02",
+            "name": "Refrigerator (Fridge) Repair & Service",
+            "slug": "refrigerator-repair",
+            "iconUrl": "/icons/fridge.svg",
+            "thumbnailImage": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=600&q=80",
+            "galleryImages": [
+                "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=1200&q=80"
+            ],
+            "rating": 4.9,
+            "reviewCount": 182,
+            "inspectionFee": 99,
+            "isFeeWaivedOnRepair": true,
+            "coverageText": "All Gorakhpur Areas",
+            "shortBullets": [
+                "Double & single door fridge fixing, gas charging, & part replacement",
+                "No hidden charges • 30-day warranty on all compressor & thermostat work"
+            ],
+            "aboutTitle": "About Refrigerator Service",
+            "aboutDescription": "Expert repair of single door, double door, and inverter refrigerators. Solutions for cooling failure, ice build-up, PCB issues, and thermostat replacement across Gorakhpur.",
+            "displayOrder": 2,
+            "subServices": [
+                { "title": "Single Door Fridge Repair", "dropdownLabel": "Single Door Fridge Repair (₹299)", "startingPrice": 299, "estimatedDuration": "45 Mins", "displayOrder": 1 },
+                { "title": "Double Door / Inverter Fridge Repair", "dropdownLabel": "Double Door / Inverter Repair (₹399)", "startingPrice": 399, "estimatedDuration": "60 Mins", "displayOrder": 2 },
+                { "title": "Fridge Gas Refilling", "dropdownLabel": "Fridge Gas Refill (₹1,299)", "startingPrice": 1299, "estimatedDuration": "60 Mins", "displayOrder": 3 },
+                { "title": "General Diagnosis & Inspection", "dropdownLabel": "General Inspection (₹99)", "startingPrice": 99, "estimatedDuration": "30 Mins", "displayOrder": 4 }
+            ]
+        },
+        {
+            "id": "cat_wm_03",
+            "name": "Washing Machine Repair & Service",
+            "slug": "washing-machine-repair",
+            "iconUrl": "/icons/wm.svg",
+            "thumbnailImage": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80",
+            "galleryImages": [
+                "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=1200&q=80"
+            ],
+            "rating": 4.7,
+            "reviewCount": 165,
+            "inspectionFee": 99,
+            "isFeeWaivedOnRepair": true,
+            "coverageText": "All Gorakhpur Areas",
+            "shortBullets": [
+                "Top & front load repair, spin/drain fixing, & motor replacement",
+                "Same-day doorstep service across Gorakhpur"
+            ],
+            "aboutTitle": "About Washing Machine Repair",
+            "aboutDescription": "Doorstep diagnosis and repair for semi-automatic and fully-automatic machines. Drain blockage, high vibration, drum repair, and motor replacement.",
+            "displayOrder": 3,
+            "subServices": [
+                { "title": "Semi-Automatic Machine Repair", "dropdownLabel": "Semi-Automatic Repair (₹299)", "startingPrice": 299, "estimatedDuration": "45 Mins", "displayOrder": 1 },
+                { "title": "Fully-Automatic Top Load Service", "dropdownLabel": "Top Load Automatic Repair (₹399)", "startingPrice": 399, "estimatedDuration": "60 Mins", "displayOrder": 2 },
+                { "title": "Front Load Premium Repair", "dropdownLabel": "Front Load Repair (₹499)", "startingPrice": 499, "estimatedDuration": "60 Mins", "displayOrder": 3 }
+            ]
+        },
+        {
+            "id": "cat_ro_04",
+            "name": "RO Water Purifier Repair & Servicing",
+            "slug": "ro-water-purifier",
+            "iconUrl": "/icons/ro.svg",
+            "thumbnailImage": "https://images.unsplash.com/photo-1585832770485-e68a5dbfad52?auto=format&fit=crop&w=600&q=80",
+            "galleryImages": [
+                "https://images.unsplash.com/photo-1585832770485-e68a5dbfad52?auto=format&fit=crop&w=1200&q=80"
+            ],
+            "rating": 4.8,
+            "reviewCount": 140,
+            "inspectionFee": 99,
+            "isFeeWaivedOnRepair": true,
+            "coverageText": "All Gorakhpur Areas",
+            "shortBullets": [
+                "Complete RO service, filter change, membrane check & installation",
+                "100% genuine sediment, carbon & RO membranes used"
+            ],
+            "aboutTitle": "About RO Water Purifier Service",
+            "aboutDescription": "Purifier deep cleaning, TDS adjustment, filter replacement, booster pump repair, and leakage solutions for Kent, Aquaguard, Pureit, and local brands.",
+            "displayOrder": 4,
+            "subServices": [
+                { "title": "Complete RO Servicing & Cleaning", "dropdownLabel": "Full Service & Cleaning (₹299)", "startingPrice": 299, "estimatedDuration": "45 Mins", "displayOrder": 1 },
+                { "title": "All Filter Replacement Kit", "dropdownLabel": "Filter & Membrane Change (₹1,199)", "startingPrice": 1199, "estimatedDuration": "45 Mins", "displayOrder": 2 },
+                { "title": "RO Installation / Uninstallation", "dropdownLabel": "RO Installation (₹349)", "startingPrice": 349, "estimatedDuration": "45 Mins", "displayOrder": 3 }
+            ]
+        },
+        {
+            "id": "cat_geyser_05",
+            "name": "Geyser (Water Heater) Repair & Service",
+            "slug": "geyser-repair",
+            "iconUrl": "/icons/geyser.svg",
+            "thumbnailImage": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
+            "galleryImages": [
+                "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80"
+            ],
+            "rating": 4.6,
+            "reviewCount": 118,
+            "inspectionFee": 99,
+            "isFeeWaivedOnRepair": true,
+            "coverageText": "All Gorakhpur Areas",
+            "shortBullets": [
+                "Electric & gas geyser fixing, heating problem, & uninstallation",
+                "Safe wiring inspection & heavy-duty heating coil replacements"
+            ],
+            "aboutTitle": "About Geyser Service",
+            "aboutDescription": "Safe and certified technicians for heating failure, tank leakage, thermostat trip, and fresh installation across all residential areas of Gorakhpur.",
+            "displayOrder": 5,
+            "subServices": [
+                { "title": "Geyser Heating Problem Repair", "dropdownLabel": "Not Heating / Repair (₹249)", "startingPrice": 249, "estimatedDuration": "45 Mins", "displayOrder": 1 },
+                { "title": "Heating Element Replacement", "dropdownLabel": "Element Change (₹499)", "startingPrice": 499, "estimatedDuration": "45 Mins", "displayOrder": 2 },
+                { "title": "Geyser Installation Service", "dropdownLabel": "New Geyser Installation (₹399)", "startingPrice": 399, "estimatedDuration": "45 Mins", "displayOrder": 3 }
+            ]
+        },
+        {
+            "id": "cat_tv_06",
+            "name": "Smart TV & LED Repair & Installation",
+            "slug": "smart-tv-repair",
+            "iconUrl": "/icons/tv.svg",
+            "thumbnailImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80",
+            "galleryImages": [
+                "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1200&q=80"
+            ],
+            "rating": 4.7,
+            "reviewCount": 132,
+            "inspectionFee": 99,
+            "isFeeWaivedOnRepair": true,
+            "coverageText": "All Gorakhpur Areas",
+            "shortBullets": [
+                "Screen replacement, backlight fixing, audio issues, & wall-mount setup",
+                "Motherboard and power board micro-soldering experts"
+            ],
+            "aboutTitle": "About Smart TV Repair",
+            "aboutDescription": "Professional repair for 32 to 65 inch LED/Smart TVs. Backlight strip replacement, sound issue fixing, and sturdy wall mounting with warranty.",
+            "displayOrder": 6,
+            "subServices": [
+                { "title": "LED TV Wall Mount Installation", "dropdownLabel": "Wall Mount Installation (₹349)", "startingPrice": 349, "estimatedDuration": "30 Mins", "displayOrder": 1 },
+                { "title": "Sound / Display Backlight Repair", "dropdownLabel": "Display / Sound Repair (₹499)", "startingPrice": 499, "estimatedDuration": "60 Mins", "displayOrder": 2 },
+                { "title": "General TV Diagnosis & Inspection", "dropdownLabel": "General Inspection (₹99)", "startingPrice": 99, "estimatedDuration": "30 Mins", "displayOrder": 3 }
+            ]
+        }
+    ],
+    "gorakhpurAreas": [
+        { "name": "Golghar", "pincode": "273001", "displayOrder": 1 },
+        { "name": "Taramandal", "pincode": "273010", "displayOrder": 2 },
+        { "name": "Medical College Road", "pincode": "273013", "displayOrder": 3 },
+        { "name": "Civil Lines", "pincode": "273001", "displayOrder": 4 },
+        { "name": "Gorakhnath", "pincode": "273015", "displayOrder": 5 },
+        { "name": "Asuran Chowk", "pincode": "273006", "displayOrder": 6 },
+        { "name": "Rapti Nagar", "pincode": "273003", "displayOrder": 7 },
+        { "name": "Rustampur", "pincode": "273016", "displayOrder": 8 },
+        { "name": "Shahpur", "pincode": "273004", "displayOrder": 9 },
+        { "name": "Buxipur", "pincode": "273001", "displayOrder": 10 },
+        { "name": "Other Gorakhpur Area", "pincode": "273001", "displayOrder": 11 }
+    ]
+}

@@ -1,0 +1,85 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Category {
+  id                    String        @id @default(cuid())
+  name                  String
+  slug                  String        @unique
+  iconUrl               String
+  thumbnailImage        String
+  galleryImages         String[]
+  rating                Float         @default(4.8)
+  reviewCount           Int           @default(150)
+  inspectionFee         Int           @default(99)
+  isFeeWaivedOnRepair   Boolean       @default(true)
+  coverageText          String        @default("Golghar & All Areas, Gorakhpur")
+  shortBullets          String[]
+  aboutTitle            String        @default("About Service & Pricing")
+  aboutDescription      String
+  warrantyText          String        @default("30-Day Doorstep Guarantee")
+  isVerified            Boolean       @default(true)
+  isActive              Boolean       @default(true)
+  displayOrder          Int           @default(0)
+  services              Service[]
+  bookings              Booking[]
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+
+  @@index([slug])
+  @@index([isActive, displayOrder])
+}
+
+model Service {
+  id                String    @id @default(cuid())
+  categoryId        String
+  category          Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  title             String
+  dropdownLabel     String
+  startingPrice     Int
+  estimatedDuration String    @default("45 Mins")
+  isActive          Boolean   @default(true)
+  displayOrder      Int       @default(0)
+  createdAt         DateTime  @default(now())
+
+  @@index([categoryId])
+  @@index([isActive, displayOrder])
+}
+
+model GorakhpurArea {
+  id            String    @id @default(cuid())
+  name          String    @unique
+  pincode       String?
+  isServiceable Boolean   @default(true)
+  displayOrder  Int       @default(0)
+
+  @@index([isServiceable, displayOrder])
+}
+
+model Booking {
+  id                 String    @id @default(cuid())
+  bookingId          String    @unique
+  customerName       String
+  phoneNumber        String
+  categoryId         String
+  category           Category  @relation(fields: [categoryId], references: [id])
+  selectedSubService String
+  gorakhpurArea      String
+  fullAddress        String?
+  inspectionFee      Int       @default(99)
+  feeStatus          String    @default("Pay After Service")
+  bookingStatus      String    @default("Request Confirmed")
+  technicianAssigned String?
+  alertSentViaBrevo  Boolean   @default(false)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([bookingId])
+  @@index([phoneNumber])
+  @@index([createdAt])
+}

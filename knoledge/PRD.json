@@ -1,0 +1,141 @@
+{
+    "product_metadata": {
+        "name": "Gorakhpur Repairs",
+        "version": "1.0.0",
+        "target_geography": {
+            "city": "Gorakhpur",
+            "state": "Uttar Pradesh",
+            "country": "India",
+            "pincodes": ["273001", "273003", "273004", "273006", "273010", "273013", "273015", "273016"]
+        },
+        "core_business_model": {
+            "proposition": "On-demand doorstep home appliance repair & maintenance with verified local technicians",
+            "pricing_logic": {
+                "inspection_fee_inr": 99,
+                "is_waived_on_service": true,
+                "payment_collection": "Post-service (Pay via Cash or UPI after work is completed)",
+                "advance_payment_required": false
+            },
+            "lead_response_sla": "Coordinator calls customer within 10 minutes of booking submission"
+        }
+    },
+    "technical_architecture": {
+        "framework": "Next.js 14+ (App Router with TypeScript)",
+        "styling": "Tailwind CSS + Lucide React Icons",
+        "database": {
+            "provider": "PostgreSQL (Neon.tech Serverless)",
+            "orm": "Prisma ORM",
+            "connection_mode": "Serverless connection pooling via DATABASE_URL"
+        },
+        "communication_and_alerts": {
+            "provider": "Brevo API (Transactional Email & SMS)",
+            "dispatch_trigger": "On every valid POST to /api/bookings"
+        },
+        "hosting_and_infrastructure": {
+            "platform": "Vercel",
+            "ssl": "Automated Edge HTTPS",
+            "media_storage": "Cloudflare R2 (Static & dynamic appliance images)"
+        },
+        "analytics_and_ads": {
+            "ga4_measurement_id": "process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID",
+            "conversion_page": "/thank-you"
+        }
+    },
+    "routes_and_page_specifications": [{
+            "route": "/",
+            "type": "Server Component",
+            "purpose": "High-converting homepage with appliance categories, search, and trust badges",
+            "data_requirements": {
+                "categories": "prisma.category.findMany({ where: { isActive: true }, orderBy: { displayOrder: 'asc' } })",
+                "serviceable_areas": "prisma.gorakhpurArea.findMany({ where: { isServiceable: true } })"
+            },
+            "key_elements": [
+                "Hero section with search bar directing to /services?q={query}",
+                "Grid of 6 appliance categories linking to /services/[category_slug]",
+                "3-step process (Book -> Technician Arrives -> Pay After Service)",
+                "Local SEO tags for Gorakhpur localities",
+                "Trust badges: 30-day warranty, verified mechanics, ₹99 inspection fee"
+            ]
+        },
+        {
+            "route": "/services",
+            "type": "Server Component (with Client Filter Component)",
+            "purpose": "Justdial-style clean vertical listing of all repair services with instant client-side search",
+            "data_requirements": {
+                "categories_with_services": "prisma.category.findMany({ where: { isActive: true }, include: { services: true }, orderBy: { displayOrder: 'asc' } })"
+            },
+            "key_elements": [
+                "Search input with instant real-time filtering (by appliance name or sub-service)",
+                "Listing cards showing thumbnail, rating (★ 4.8), Gorakhpur coverage, and bullet points",
+                "₹99 inspection fee callout on every card",
+                "Direct action buttons: 'Continue' (links to detail page) and 'Call Now' (tel:+919876543210)"
+            ]
+        },
+        {
+            "route": "/services/[category]",
+            "type": "Server Component (with Client Form Component)",
+            "purpose": "Dynamic service profile page with photo gallery, sub-service dropdown selector, and sticky CTA bar",
+            "data_requirements": {
+                "category": "prisma.category.findUnique({ where: { slug: params.category }, include: { services: { where: { isActive: true }, orderBy: { displayOrder: 'asc' } } } })",
+                "gorakhpur_areas": "prisma.gorakhpurArea.findMany({ where: { isServiceable: true }, orderBy: { displayOrder: 'asc' } })"
+            },
+            "business_rules": [
+                "Sub-services must NOT be rendered as cluttered multi-cards; they must feed into the lead form dropdown.",
+                "Form submission must send payload to /api/bookings and redirect to /thank-you?booking_id={bookingId}.",
+                "On mobile viewports (< 768px), sticky bottom bar must show WhatsApp, Call Now, and Book Service buttons."
+            ]
+        },
+        {
+            "route": "/thank-you",
+            "type": "Server Component",
+            "purpose": "Order confirmation, real-time progress tracker, and direct contact buttons",
+            "data_requirements": {
+                "booking": "prisma.booking.findUnique({ where: { bookingId: searchParams.booking_id } })"
+            },
+            "key_elements": [
+                "Green success checkmark and confirmation message",
+                "3-stage progress stepper: Request Confirmed (done) -> Technician Assigned (active) -> Doorstep Repair & Pay (pending)",
+                "Summary card: Booking ID, Selected Sub-Service, Customer Name, Gorakhpur Area, ₹99 Fee status",
+                "Immediate action buttons: 'Chat on WhatsApp' and 'Call Service Manager'"
+            ]
+        }
+    ],
+    "api_specifications": {
+        "booking_creation": {
+            "endpoint": "/api/bookings",
+            "method": "POST",
+            "incoming_payload": {
+                "customerName": "string (min 2 chars)",
+                "phoneNumber": "string (10 digits, starts with 6-9)",
+                "categoryId": "string (valid category UUID/CUID)",
+                "selectedSubService": "string (title of the sub-service)",
+                "gorakhpurArea": "string (valid area name)",
+                "fullAddress": "string (optional)"
+            },
+            "server_logic": [
+                "1. Validate all required fields using Zod or manual checks.",
+                "2. Generate unique human-readable bookingId: `GKP-${Math.floor(1000 + Math.random() * 9000)}`.",
+                "3. Verify bookingId uniqueness in PostgreSQL; retry if collision occurs.",
+                "4. Save record to `Booking` table via Prisma with inspectionFee=99 and status='Request Confirmed'.",
+                "5. Asynchronously trigger Brevo API to send alert email and SMS to admin.",
+                "6. Return JSON response: `{ success: true, bookingId: 'GKP-XXXX', redirectUrl: '/thank-you?booking_id=GKP-XXXX' }` with HTTP 201 status."
+            ],
+            "error_responses": {
+                "400": "{ success: false, error: 'Invalid input or missing required fields' }",
+                "500": "{ success: false, error: 'Internal server error while saving booking' }"
+            }
+        }
+    },
+    "alert_system_brevo_payload": {
+        "admin_email_notification": {
+            "sender": { "name": "Gorakhpur Repairs Alert", "email": "notifications@gorakhpurrepairs.com" },
+            "to": [{ "email": "process.env.ADMIN_NOTIFICATION_EMAIL" }],
+            "subject": "🚨 New Doorstep Booking: {bookingId} - {selectedSubService} ({gorakhpurArea})",
+            "htmlContent": "<h3>New Booking Alert</h3><p><strong>Booking ID:</strong> {bookingId}</p><p><strong>Customer Name:</strong> {customerName}</p><p><strong>Phone:</strong> {phoneNumber}</p><p><strong>Service:</strong> {selectedSubService}</p><p><strong>Area:</strong> {gorakhpurArea}</p><p><strong>Inspection Fee:</strong> ₹99 (Pay after service)</p>"
+        },
+        "admin_sms_notification": {
+            "recipient": "process.env.ADMIN_NOTIFICATION_PHONE",
+            "content": "Gorakhpur Repairs: New Booking #{bookingId}! Name: {customerName}, Mob: {phoneNumber}, Area: {gorakhpurArea}, Service: {selectedSubService}. Call customer now."
+        }
+    }
+}
