@@ -17,7 +17,7 @@ export function Footer({ areas = [], categories = [] }: FooterProps) {
             <div className="flex items-center gap-2.5">
               <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-white border border-zinc-700">
                 <Image
-                  src="/logo.jpeg"
+                  src="/logo.png"
                   alt="Zalvix Group"
                   fill
                   sizes="32px"

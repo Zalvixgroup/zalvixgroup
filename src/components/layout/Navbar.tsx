@@ -9,9 +9,9 @@ export function Navbar() {
         {/* Brand Logo & Minimal City Badge */}
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-zinc-300 bg-white flex-shrink-0">
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-zinc-200 bg-white flex-shrink-0">
               <Image
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Zalvix Group"
                 fill
                 sizes="32px"
